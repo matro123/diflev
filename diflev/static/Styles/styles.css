@@ -74,8 +74,11 @@ body{
     resize: none;
 }
 
-@media (max-width: 640px) {
+@media (min-width: 900px) {
     .translation{
         flex-direction: column;
+    }
+    .translation textarea{
+        margin-bottom: 1em;
     }
 }
