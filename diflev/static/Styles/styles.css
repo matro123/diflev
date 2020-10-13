@@ -24,15 +24,17 @@ body{
 }
 .content h2{
     margin-top: 0.7em;
+    width: 55vw;
 }
 .language{
     display: flex;
     font-size: 0.7em;
+    width: 55vw;
 }
 .language h1{
     color: rgb(127, 127, 127);
     background-color: #F2F2F2;
-    width: 12em;
+    flex: 1;
     padding: 0.5em;
     margin-right: 1em;
     margin-top: 0;
@@ -70,4 +72,10 @@ body{
     border: none;
     border-radius: 0;
     resize: none;
+}
+
+@media (max-width: 640px) {
+    .translation{
+        flex-direction: column;
+    }
 }
