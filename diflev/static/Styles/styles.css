@@ -74,7 +74,7 @@ body{
     resize: none;
 }
 
-@media (min-width: 900px) {
+@media screen and (max-width: 600px) {
     .translation{
         flex-direction: column;
     }
