@@ -1,0 +1,27 @@
+let dico = {
+    "bonjour": "bonelo",
+    "je": "jí",
+    "tu": "tiŏ",
+    "il": "ílî",
+    "elle": "ílî",
+    "nous": "jínŏ",
+    "vous": "tiŏnŏ",
+    "ils": "ílînŏ",
+    "elles": "ílînŏ",
+    "le": "Lehe",
+    "la": "Laha",
+    "gouvernement": "gŏvernement",
+    "de la": "da",
+    "très": "treí ",
+    "démocratique": "democratíc",
+    "électoral": "electoral",
+    "féderal": "federal",
+    "et": "ed",
+    "du": "dfo",
+    "constitution": "constítŏsíon",
+    "loi": "lō",
+    "salut": "bonalo",
+    "voir": "vos",
+    "demain": "dŏo"
+}
+export default dico
