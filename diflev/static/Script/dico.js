@@ -22,6 +22,8 @@ let dico = {
     "loi": "lō",
     "salut": "bonalo",
     "voir": "vos",
-    "demain": "dŏo"
+    "demain": "dŏo",
+    "midi": "míd-jdaî",
+    "milieu": "míd"
 }
 export default dico
