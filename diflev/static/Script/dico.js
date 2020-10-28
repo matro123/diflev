@@ -12,7 +12,7 @@ let dico = {
     "la": "Laha",
     "gouvernement": "gŏvernement",
     "de la": "da",
-    "très": "treí ",
+    "très": "treí",
     "démocratique": "democratíc",
     "électoral": "electoral",
     "féderal": "federal",
@@ -24,6 +24,8 @@ let dico = {
     "voir": "vos",
     "demain": "dŏo",
     "midi": "míd-jdaî",
-    "milieu": "míd"
+    "milieu": "míd",
+    "bon": "bogŏd",
+    "bien": "bogŏd"
 }
 export default dico

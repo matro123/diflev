@@ -7,24 +7,9 @@ const reverse = document.querySelector(".language h2");
 const lOne = document.querySelector("#lOne");
 const lTwo = document.querySelector("#lTwo");
 
-reverse.addEventListener("click", () => 
-{
-    if (lOne.textContent === "Français"){
-        lOne.textContent = "Flavienien/Evrestien";
-        lTwo.textContent = "Français";
-    }else{
-        lOne.textContent = "Français";
-        lTwo.textContent = "Flavienien/Evrestien";
-    }
-});
-
-//Traduction
-
-const usrinput = document.querySelector("#translationboxin");
-let usroutput = document.querySelector("#translationboxout");
-
-usrinput.addEventListener("input", () => {
+function translation() {
     let userinput = usrinput.value.toLowerCase().trim();
+    let userinputflev = userinput.replace('i', 'í').replace('â', 'ă').replace('ê', 'ĕ').replace('íí', 'ĭ').replace('ô', 'ŏ').replace('ä', 'ā').replace('ë', 'ē').replace('ï', 'ī').replace('ö', 'ō');
     let tr = []
 
     if (lOne.textContent === "Français"){
@@ -36,14 +21,35 @@ usrinput.addEventListener("input", () => {
             }
         }
     }else{
+        usrinput.value = userinputflev;
+        usrinput.setAttribute("spellcheck", "false");
         for(let word in dico){
             let translation = word;
             let start = dico[word];
     
-            if(userinput === start){
+            if(userinputflev === start){
                 tr.push(translation + "\n");
             }
         }
     }
     usroutput.value = tr.toString().replace(",","");
-})
+}
+
+reverse.addEventListener("click", () => 
+{
+    if (lOne.textContent === "Français"){
+        lOne.textContent = "Flavienien/Evrestien";
+        lTwo.textContent = "Français";
+    }else{
+        lOne.textContent = "Français";
+        lTwo.textContent = "Flavienien/Evrestien";
+    }
+    translation();
+});
+
+//Traduction
+
+const usrinput = document.querySelector("#translationboxin");
+let usroutput = document.querySelector("#translationboxout");
+
+usrinput.addEventListener("input", () => {translation()})
