@@ -8,15 +8,15 @@ const lOne = document.querySelector("#lOne");
 const lTwo = document.querySelector("#lTwo");
 
 function translation() {
-    let userinput = usrinput.value.toLowerCase().trim();
-    let userinputflev = userinput.replace('i', 'í').replace('â', 'ă').replace('ê', 'ĕ').replace('íí', 'ĭ').replace('ô', 'ŏ').replace('ä', 'ā').replace('ë', 'ē').replace('ï', 'ī').replace('ö', 'ō');
+    let userinput = usrinput.value.toLowerCase();
+    let userinputflev = userinput.replace('i', 'í').replace('au', 'ă').replace('eu', 'ĕ').replace('íu', 'ĭ').replace('ou', 'ŏ').replace('aw', 'ā').replace('ew', 'ē').replace('íw', 'ī').replace('ow', 'ō');
     let tr = []
 
     if (lOne.textContent === "Français"){
         for(let word in dico){
             let translation = dico[word];
     
-            if(userinput === word){
+            if(userinput.trim() === word){
                 tr.push(translation + "\n");
             }
         }
@@ -27,7 +27,7 @@ function translation() {
             let translation = word;
             let start = dico[word];
     
-            if(userinputflev === start){
+            if(userinputflev.trim() === start){
                 tr.push(translation + "\n");
             }
         }
