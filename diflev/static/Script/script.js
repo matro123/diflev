@@ -9,30 +9,34 @@ const lTwo = document.querySelector("#lTwo");
 
 function translation() {
     let userinput = usrinput.value.toLowerCase();
-    let userinputflev = userinput.replace('i', 'í').replace('au', 'ă').replace('eu', 'ĕ').replace('íu', 'ĭ').replace('ou', 'ŏ').replace('aw', 'ā').replace('ew', 'ē').replace('íw', 'ī').replace('ow', 'ō');
     let tr = []
 
     if (lOne.textContent === "Français"){
         for(let word in dico){
             let translation = dico[word];
+            let userinputfr = " " + usrinput.value + " ";
     
-            if(userinput.trim() === word){
+            if(userinputfr.includes(" " + word + " ") === true || userinputfr.includes(" " + word + ",") === true || userinputfr.includes(" " + word + ".") === true){
                 tr.push(translation + "\n");
             }
         }
     }else{
-        usrinput.value = userinputflev;
+        usrinput.value = userinput.replace('i', 'í').replace('au', 'ă').replace('eu', 'ĕ').replace('íu', 'ĭ').replace('ou', 'ŏ').replace('aw', 'ā').replace('ew', 'ē').replace('íw', 'ī').replace('ow', 'ō');
+        let userinputflev = " " + usrinput.value + " ";
         usrinput.setAttribute("spellcheck", "false");
         for(let word in dico){
             let translation = word;
             let start = dico[word];
-    
-            if(userinputflev.trim() === start){
+
+            if(userinputflev.includes(" " + start + " ") === true || userinputflev.includes(" " + start + ",") === true || userinputflev.includes(" " + start + ".") === true){
+                let t = [translation];
+                console.log(t);
                 tr.push(translation + "\n");
             }
         }
     }
-    usroutput.value = tr.toString().replace(",","");
+    usroutput.value = tr.join("")
+
 }
 
 reverse.addEventListener("click", () => 
