@@ -9,33 +9,42 @@ const lTwo = document.querySelector("#lTwo");
 
 function translation() {
     let userinput = usrinput.value.toLowerCase();
-    let tr = []
+    let tr = [];
 
     if (lOne.textContent === "Français"){
-        for(let word in dico){
-            let translation = dico[word];
-            let userinputfr = " " + usrinput.value + " ";
-    
-            if(userinputfr.includes(" " + word + " ") === true || userinputfr.includes(" " + word + ",") === true || userinputfr.includes(" " + word + ".") === true){
-                tr.push(translation + "\n");
+        userinput = userinput.replace(",", "");
+        userinput = userinput.split(" ");
+        for(let wordIndex in userinput){
+            let word = userinput[wordIndex];
+            if (dico.hasOwnProperty(word) === true){
+                tr.push(dico[word] + "\n");
+            }else{
+                tr.push(word + "\n");
             }
+
         }
     }else{
         usrinput.value = userinput.replace('i', 'í').replace('au', 'ă').replace('eu', 'ĕ').replace('íu', 'ĭ').replace('ou', 'ŏ').replace('aw', 'ā').replace('ew', 'ē').replace('íw', 'ī').replace('ow', 'ō');
-        let userinputflev = " " + usrinput.value + " ";
-        usrinput.setAttribute("spellcheck", "false");
-        for(let word in dico){
-            let translation = word;
-            let start = dico[word];
-
-            if(userinputflev.includes(" " + start + " ") === true || userinputflev.includes(" " + start + ",") === true || userinputflev.includes(" " + start + ".") === true){
-                let t = [translation];
-                console.log(t);
-                tr.push(translation + "\n");
+        userinput = usrinput.value;
+        userinput = userinput.replace(",", "");
+        userinput = userinput.split(" ");
+        for(let wordIndex in userinput){
+            let word = userinput[wordIndex];
+            let translations = [];
+            if (Object.values(dico).includes(word) === true){
+                for (let i in Object.values(dico)){
+                    if (Object.values(dico)[i] === word){
+                        translations.push(Object.keys(dico)[i])
+                    } 
+                }
+                translations = translations.join(" | ")
+                tr.push(translations + "\n")
+            }else{
+                tr.push(word + "\n");
             }
         }
     }
-    usroutput.value = tr.join("")
+    usroutput.value = tr.join("");
 
 }
 
@@ -48,6 +57,7 @@ reverse.addEventListener("click", () =>
         lOne.textContent = "Français";
         lTwo.textContent = "Flavienien/Evrestien";
     }
+    //usrinput.value = "";
     translation();
 });
 
