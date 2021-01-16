@@ -401,6 +401,7 @@ let dico = {
     "voyage": "vorneî",
     "fils": "goî",
     "gens": "gensĕn",
+    "m'appelle": "eís",
 
     //verbes
 
